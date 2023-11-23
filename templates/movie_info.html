@@ -4,40 +4,102 @@
 <head>
     <title>Movie Information</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .star-rating {
+            display: inline-block;
+            font-size: 1.5em;
+            color: #ffd700;
+        }
+
+        .movie-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .movie-card img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            max-height: 500px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .movie-card .card-body {
+            padding: 20px;
+        }
+
+        .info-card {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .info-card .card {
+            width: 30%;
+            margin-right: 2%;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container mt-5">
         <h2 class="text-center">Movie Information</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <ul class="list-group">
-                    <li class="list-group-item"><strong>Title:</strong> {{ movie_data.Title }}</li>
-                    <li class="list-group-item"><strong>Year:</strong> {{ movie_data.Year }}</li>
-                    <li class="list-group-item"><strong>Rated:</strong> {{ movie_data.Rated }}</li>
-                    <li class="list-group-item"><strong>Released:</strong> {{ movie_data.Released }}</li>
-                    <li class="list-group-item"><strong>Runtime:</strong> {{ movie_data.Runtime }}</li>
-                    <li class="list-group-item"><strong>Genre:</strong> {{ movie_data.Genre }}</li>
-                    <li class="list-group-item"><strong>Director:</strong> {{ movie_data.Director }}</li>
-                    <li class="list-group-item"><strong>Writer:</strong> {{ movie_data.Writer }}</li>
-                    <li class="list-group-item"><strong>Actors:</strong> {{ movie_data.Actors }}</li>
-                    <li class="list-group-item"><strong>Plot:</strong> {{ movie_data.Plot }}</li>
-                    <li class="list-group-item"><strong>Language:</strong> {{ movie_data.Language }}</li>
-                    <li class="list-group-item"><strong>Country:</strong> {{ movie_data.Country }}</li>
-                    <li class="list-group-item"><strong>Awards:</strong> {{ movie_data.Awards }}</li>
-                    <li class="list-group-item"><strong>IMDb Rating:</strong> {{ movie_data.imdbRating }}</li>
-                    <li class="list-group-item"><strong>IMDb Votes:</strong> {{ movie_data.imdbVotes }}</li>
-                    <li class="list-group-item"><strong>IMDb ID:</strong> {{ movie_data.imdbID }}</li>
-                    <li class="list-group-item"><strong>Type:</strong> {{ movie_data.Type }}</li>
-                    <li class="list-group-item"><strong>DVD Release:</strong> {{ movie_data.DVD }}</li>
-                    <li class="list-group-item"><strong>Box Office:</strong> {{ movie_data.BoxOffice }}</li>
-                    <li class="list-group-item"><strong>Production:</strong> {{ movie_data.Production }}</li>
-                    <li class="list-group-item"><strong>Website:</strong> {{ movie_data.Website }}</li>
-                    <li class="list-group-item"><strong>Response:</strong> {{ movie_data.Response }}</li>
-                </ul>
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{{ movie_data.Poster }}" alt="{{ movie_data.Title }}" class="img-fluid">
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-12 movie-card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie_data.Title }}</h5>
+                    <div class="info-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text"><strong>Year:</strong> {{ movie_data.Year }}</p>
+                                <p class="card-text"><strong>Rated:</strong> {{ movie_data.Rated }}</p>
+                                <p class="card-text"><strong>Released:</strong> {{ movie_data.Released }}</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text"><strong>Runtime:</strong> {{ movie_data.Runtime }}</p>
+                                <p class="card-text"><strong>Genre:</strong> {{ movie_data.Genre }}</p>
+                                <p class="card-text"><strong>Director:</strong> {{ movie_data.Director }}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="info-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text"><strong>Writer:</strong> {{ movie_data.Writer }}</p>
+                                <p class="card-text"><strong>Actors:</strong> {{ movie_data.Actors }}</p>
+                                <p class="card-text"><strong>Plot:</strong> {{ movie_data.Plot }}</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text"><strong>IMDb Rating:</strong>
+                                    <div class="star-rating">
+                                        {{ '#' * movie_data.imdbRating.split('.')[0] }}
+                                        {{ '##' if movie_data.imdbRating.split('.')[1]|int >= 5 else '' }}
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                </div>
             </div>
         </div>
     </div>
 </body>
 
 </html>
+
+
+
+
