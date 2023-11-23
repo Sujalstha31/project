@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Movie Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Movie Information</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="{{ movie_data.Poster }}" class="card-img-top" alt="{{ movie_data.Title }} Poster">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ movie_data.Title }} ({{ movie_data.Year }})</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Genre:</strong> {{ movie_data.Genre }}</li>
+                            <li class="list-group-item"><strong>Director:</strong> {{ movie_data.Director }}</li>
+                            <li class="list-group-item"><strong>Writer:</strong> {{ movie_data.Writer }}</li>
+                            <li class="list-group-item"><strong>Actors:</strong> {{ movie_data.Actors }}</li>
+                            <li class="list-group-item"><strong>Plot:</strong> {{ movie_data.Plot }}</li>
+                            <li class="list-group-item"><strong>Language:</strong> {{ movie_data.Language }}</li>
+                            <li class="list-group-item"><strong>Country:</strong> {{ movie_data.Country }}</li>
+                            <li class="list-group-item"><strong>Runtime:</strong> {{ movie_data.Runtime }}</li>
+                            <li class="list-group-item"><strong>IMDb Rating:</strong> {{ movie_data.imdbRating }}
+                                ({{ movie_data.imdbVotes }} votes)</li>
+                            <li class="list-group-item"><strong>Ratings:</strong>
+                                <ul>
+                                    <li><strong>IMDb:</strong> {{ movie_data.Ratings[0].Value }}</li>
+                                    <li><strong>Rotten Tomatoes:</strong> {{ movie_data.Ratings[1].Value }}</li>
+                                    <li><strong>Metacritic:</strong> {{ movie_data.Ratings[2].Value }}</li>
+                                </ul>
+                            </li>
+                            <li class="list-group-item"><strong>Box Office:</strong> {{ movie_data.BoxOffice }}</li>
+                            <li class="list-group-item"><strong>Awards:</strong> {{ movie_data.Awards }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UoYjSof+spVwQKmme02cLwPz5U5+YdZ3+5P3pxvmeWMI7bGti9UQ3feQQfGvoFIE" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
