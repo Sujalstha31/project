@@ -4,10 +4,10 @@ import requests
 app = Flask(__name__)
 
 @app.route('/')
-def homepage():
+def homepage(): 
     return render_template("index.html")
 
-@app.route("/movieinfo", methods=["POST"])
+@app.route("/movie_info.html", methods=["POST"])
 def get_movie_info():
     movie_name = request.form.get("movie")
     imdb_api_key = request.form.get('appid')
