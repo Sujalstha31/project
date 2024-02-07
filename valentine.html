@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Program</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        #container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #valentineImage {
+            width: 300px; /* Adjust the size as needed */
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #yesButton {
+            background-color: #4CAF50; /* Green */
+            color: #fff;
+        }
+
+        #noButton {
+            background-color: #FF5733; /* Red */
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img id="valentineImage" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" alt="Valentine's Day Image">
+        <h2 id="promptText">Will you be my Valentine?</h2>
+        <div id="buttons">
+            <button id="yesButton" onclick="updateText()">Yes</button>
+            <button id="noButton" onclick="changeText()">No</button>
+        </div>
+    </div>
+
+    <script>
+        var noButtonClickCount = 0;
+        var noButtonPrompts = ["Are you Sure?", "Kasam?", "Really Kasam","Aba malai Chita Dhukcha hai","Yo thicyo bhane Aiya huncha","Aiya thicheko sachi.. Dhukyo,aba Yes ma Click gara",
+"Please I am Sad Now ","Suju is Sad"];
+
+        function changeImage(newImageUrl) {
+            document.getElementById('valentineImage').src = newImageUrl;
+        }
+
+        function changeText() {
+            var noButton = document.getElementById('noButton');
+            if (noButtonClickCount < noButtonPrompts.length) {
+                noButton.innerText = noButtonPrompts[noButtonClickCount];
+                noButtonClickCount++;
+            } else {
+                noButtonClickCount = 0; // Reset count to restart from the beginning
+                noButton.innerText = noButtonPrompts[noButtonClickCount];
+            }
+        }
+
+        function updateText() {
+            var promptText = document.getElementById('promptText');
+            var buttonsContainer = document.getElementById('buttons');
+            promptText.innerText = "Yaaaa, I love you Chanu";
+            buttonsContainer.style.display = 'none'; // Hide the buttons
+        }
+    </script>
+</body>
+</html>
